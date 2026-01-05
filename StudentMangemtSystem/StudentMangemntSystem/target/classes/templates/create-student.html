@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Create New Student</title>
+
+<!-- Bootstrap CDN (MUST be inside head) -->
+<link rel="stylesheet"
+ href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+ integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+ crossorigin="anonymous">
+
+<style>
+    body {
+        background-color: #f4f6f9;
+    }
+
+    .student-form {
+        max-width: 450px;
+        margin: 60px auto;
+        padding: 30px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .student-form h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 24px;
+        color: #343a40;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+</style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    
+    <!-- Brand -->
+    <a class="navbar-brand" href="#">Student Management System</a>
+
+    <!-- Toggler/collapsible Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+       <ul class="navbar-nav">
+       <li class="nav-item"><a class="nav-link" th:href="@{/students}"> Student Management </a></li>
+       </ul>
+</nav>
+
+
+<div class="student-form">
+<h1>Create New Student</h1>
+
+<form th:action="@{/students}" th:object="${student}" method="post">
+
+      <div class="form-group">
+         <label>Student First Name</label>
+         <input type="text"
+                class="form-control"
+                name="firstName"
+                id="firstName"
+                placeholder="Enter First Name"/>
+      </div>
+
+      <div class="form-group">
+         <label>Student Last Name</label>
+         <input type="text"
+                class="form-control"
+                name="lastName"
+                id="lastName"
+                placeholder="Enter Last Name"/>
+      </div>
+
+      <div class="form-group">
+         <label>Student Email</label>
+         <input type="text"
+                class="form-control"
+                name="email"
+                id="email"
+                placeholder="Enter Email"/>
+      </div>
+
+      <div class="box-footer">
+           <button type="submit" class="btn btn-primary">
+               Submit
+           </button>
+      </div>
+
+</form>
+</div>
+
+</body>
+</html>
